@@ -1,8 +1,0 @@
-@import './config/colors.css';
-
-.main {
-  background-color: var(--black);
-  font-size: calc(10px + 2vmin);
-  color: var(--white);
-  font-family: montserrat, sans-serif;
-}
