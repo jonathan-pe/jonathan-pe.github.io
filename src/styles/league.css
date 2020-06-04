@@ -1,0 +1,8 @@
+@import '../config/colors.css';
+
+.league {
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}

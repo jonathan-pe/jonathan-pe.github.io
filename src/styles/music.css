@@ -1,0 +1,14 @@
+@import '../config/colors.css';
+
+.music {
+  color: var(--secondary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.animatedLogo {
+  height: auto;
+  width: 25%;
+}
