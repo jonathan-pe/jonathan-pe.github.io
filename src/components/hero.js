@@ -63,7 +63,7 @@ export default function Hero() {
             <div className={styles.caption}>I'm a Software Engineer based in San Francisco, CA 
             with interests in web & mobile development. 
             I also enjoy playing video games and DJing 
-            on <a href="https://twitch.tv/jpeeeeeeeeeeee" target="_blank" rel="noopener" className={styles.twitchLink}>Twitch</a>!
+            on <a href="https://twitch.tv/jpeeeeeeeeeeee" target="_blank" rel="noopener noreferrer" className={styles.twitchLink}>Twitch</a>!
             </div>
         </section>
     );

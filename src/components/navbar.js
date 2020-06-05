@@ -7,6 +7,18 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import colors from '../config/colors';
 
+function ElevationScroll(props) {
+  const { children } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 50
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 8 : 0,
+  });
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1
@@ -26,13 +38,15 @@ export default function Navbar(props) {
 
   return (
     <div className={styles.root}>
+    <ElevationScroll {...props}>
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
-        <AppBar className={styles.appBar}>
-          <Toolbar>
-            <img src={logo} alt="logo" className={styles.logo} />
-          </Toolbar>
-        </AppBar>
+          <AppBar className={styles.appBar}>
+            <Toolbar>
+              <img src={logo} alt="logo" className={styles.logo} />
+            </Toolbar>
+          </AppBar>
       </Slide>
+    </ElevationScroll>
     </div>
   );
 }
