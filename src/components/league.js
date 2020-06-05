@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
 export default function League() {
     const styles = useStyles();
     return (
-        <div className={styles.league}>
+        <section className={styles.league}>
             League
-        </div>
+        </section>
     );
 }

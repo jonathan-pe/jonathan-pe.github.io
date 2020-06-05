@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Resume() {
     const styles = useStyles();
     return (
-        <div className={styles.resume}>
+        <section className={styles.resume}>
             Resume
-        </div>
+        </section>
     );
 }

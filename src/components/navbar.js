@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 30
   },
   appBar: {
-    backgroundColor: colors.black
+    backgroundColor: colors.darkBlue
   }
 }));
 
@@ -33,7 +33,6 @@ export default function Navbar(props) {
           </Toolbar>
         </AppBar>
       </Slide>
-      <Toolbar />
     </div>
   );
 }
