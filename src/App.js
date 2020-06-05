@@ -9,7 +9,7 @@ import colors from './config/colors';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-      backgroundColor: colors.darkGrey,
+      backgroundColor: colors.black,
       color: colors.white
   },
 }));

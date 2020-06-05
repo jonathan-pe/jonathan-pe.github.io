@@ -13,10 +13,11 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: 40,
-    height: 30
+    height: 30,
+    marginLeft: 30
   },
   appBar: {
-    backgroundColor: colors.darkGrey
+    backgroundColor: colors.black
   }
 }));
 
@@ -25,7 +26,7 @@ export default function Navbar(props) {
 
   return (
     <div className={styles.root}>
-      <Slide appear={false} direction="down" in={!useScrollTrigger({ threshold: 50 })}>
+      <Slide appear={false} direction="down" in={!useScrollTrigger()}>
         <AppBar className={styles.appBar}>
           <Toolbar>
             <img src={logo} alt="logo" className={styles.logo} />

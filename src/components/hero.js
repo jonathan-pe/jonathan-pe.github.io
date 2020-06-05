@@ -8,22 +8,23 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        padding: 50
+        paddingTop: 200,
+        paddingLeft: 250
     },
       
     greeting: {
-        color: colors.black,
-        fontSize: 25,
+        color: colors.blue,
+        fontSize: 20,
     },
       
     header: {
         fontSize: 100,
-        color: colors.black,
+        color: colors.white,
     },
       
     subtitle: {
         fontSize: 50,
-        color: colors.lightGrey,
+        color: colors.dirtyWhite,
     },
       
     caption: {
@@ -36,7 +37,7 @@ export default function Hero() {
 
     return (
         <div className={styles.hero}>
-            <div className={styles.greeting}>Hello there! I'm</div>
+            <div className={styles.greeting}>Hi there! I'm</div>
             <div className={styles.header}>Jonathan Pe</div>
             <div className={styles.subtitle}>and I like to code!</div>
         </div>
