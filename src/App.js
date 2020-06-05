@@ -10,9 +10,7 @@ import colors from './config/colors';
 const useStyles = makeStyles((theme) => ({
   main: {
       backgroundColor: colors.darkGrey,
-      color: colors.white,
-      fontSize: "calc(10px + 2vmin)",
-      fontFamily: "montserrat, sans-serif"
+      color: colors.white
   },
 }));
 
