@@ -20,7 +20,7 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  navbar: {
     flexGrow: 1
   },
   logo: {
@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 30
   },
   appBar: {
-    backgroundColor: colors.darkBlue
+    backgroundColor: colors.darkBlue,
+    minHeight: 50
   }
 }));
 
@@ -37,8 +38,7 @@ export default function Navbar(props) {
   const styles = useStyles();
 
   return (
-    <div className={styles.root}>
-    <ElevationScroll {...props}>
+    <ElevationScroll {...props} className={styles.navbar}>
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
           <AppBar className={styles.appBar}>
             <Toolbar>
@@ -47,6 +47,5 @@ export default function Navbar(props) {
           </AppBar>
       </Slide>
     </ElevationScroll>
-    </div>
   );
 }

@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
+        padding: "150px 0px",
         margin: "0 auto",
-        padding: "150px 0",
         justifyContent: "center",
         maxWidth: 1000,
         WebkitBoxPack: "center",
@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 18,
         color: colors.grey,
         margin: "50px 0px 0px 0px",
-        width: "50%"
+        width: "50%",
+        maxWidth: 500
     },
 
     twitchLink: {
