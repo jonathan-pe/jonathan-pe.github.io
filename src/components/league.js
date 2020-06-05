@@ -1,12 +1,20 @@
 import React from 'react';
-import '../styles/league.css';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default class League extends React.Component {
-    render() {
-        return (
-            <div className="league">
-                League
-            </div>
-        );
-    }
+const useStyles = makeStyles((theme) => ({
+    league: {
+        minHeight: "100vh",
+        display: "flex",
+        padding: 50,
+        justifyContent: "center"
+    },
+}));
+
+export default function League() {
+    const styles = useStyles();
+    return (
+        <div className={styles.league}>
+            League
+        </div>
+    );
 }

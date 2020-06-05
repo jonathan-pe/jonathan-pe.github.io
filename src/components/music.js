@@ -1,12 +1,25 @@
 import React from 'react';
-import '../styles/music.css';
+import { makeStyles } from '@material-ui/core/styles';
 import animatedLogo from '../images/animatedLogo.svg';
-export default class Music extends React.Component {
-    render() {
-        return (
-            <div className="music">
-                <img src={animatedLogo} alt="animated logo" className="animatedLogo"/>
-            </div>
-        );
-    }
+
+const useStyles = makeStyles((theme) => ({
+    music: {
+        minHeight: "100vh",
+        display: "flex",
+        padding: 50,
+        justifyContent: "center",
+    },
+    animatedLogo: {
+        height: "auto",
+        width: "25%"
+      }
+}));
+
+export default function Music() {
+    const styles = useStyles();
+    return (
+        <div className={styles.music}>
+            <img src={animatedLogo} alt="animated logo" className={styles.animatedLogo} />
+        </div>
+    );
 }

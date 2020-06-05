@@ -1,12 +1,20 @@
 import React from 'react';
-import '../styles/resume.css';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default class Resume extends React.Component {
-    render() {
-        return (
-            <div className="resume">
-                Resumé
-            </div>
-        );
-    }
+const useStyles = makeStyles((theme) => ({
+    resume: {
+        minHeight: "100vh",
+        display: "flex",
+        padding: 50,
+        justifyContent: "center"
+    },
+}));
+
+export default function Resume() {
+    const styles = useStyles();
+    return (
+        <div className={styles.resume}>
+            Resume
+        </div>
+    );
 }

@@ -2,56 +2,37 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import '../styles/navbar.css';
 import logo from '../images/logo.svg';
-
-const navItems = [
-  {
-    name: 'Resumé',
-    url: '/#resume'
-  },
-  {
-    name: 'League of Legends',
-    url: '/#league'
-  },
-  {
-    name: 'Music',
-    url: '/#music'
-  },
-];
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
+import colors from '../config/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  logo: {
+    width: 40,
+    height: 30
   },
-  title: {
-    flexGrow: 1,
-  },
+  appBar: {
+    backgroundColor: colors.darkGrey
+  }
 }));
 
-export default function Navbar() {
-  const classes = useStyles();
+export default function Navbar(props) {
+  const styles = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+    <div className={styles.root}>
+      <Slide appear={false} direction="down" in={!useScrollTrigger({ threshold: 50 })}>
+        <AppBar className={styles.appBar}>
+          <Toolbar>
+            <img src={logo} alt="logo" className={styles.logo} />
+          </Toolbar>
+        </AppBar>
+      </Slide>
+      <Toolbar />
     </div>
   );
 }
