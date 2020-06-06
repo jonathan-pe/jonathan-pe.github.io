@@ -8,13 +8,8 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
     hero: {
         minHeight: "100vh",
-        display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        padding: "150px 0px",
-        margin: "0 auto",
-        justifyContent: "center",
-        maxWidth: 1000,
         WebkitBoxPack: "center",
         WebkitBoxAlign: "center"
     },
@@ -72,7 +67,7 @@ export default function Hero() {
     const heroContent = [greeting, header, subtitle, caption, contactButton];
 
     return (
-        <section className={styles.hero} id="hero">
+        <section className={styles.hero + " flexCenter"} id="hero">
             <TransitionGroup component={null}>
                 {heroContent.map((item, i) => (
                     <CSSTransition key={i} classNames="fadeup" in={true} timeout={300}>

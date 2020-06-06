@@ -28,6 +28,21 @@ const theme = createMuiTheme({
           "&:hover": {
             color: colors.dirtyBlue
           }
+        },
+        section: {
+          padding: "150px 0px",
+          margin: "0 auto",
+          maxWidth: 1000,
+        },
+        ".flexCenter": {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        },
+        ".flexBetween": {
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
         }
       }
     },

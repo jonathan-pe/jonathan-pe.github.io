@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AboutMe() {
     const styles = useStyles();
     return (
-        <section className={styles.aboutMe} id="aboutMe">
+        <section className={styles.aboutMe + " flexCenter"} id="aboutMe">
             About Me
         </section>
     );
