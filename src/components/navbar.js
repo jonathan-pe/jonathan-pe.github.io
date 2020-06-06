@@ -29,13 +29,24 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignContent: "center",
+    marginLeft: 30,
+    padding: 5,
     "& a": {
       display: "block",
       width: 40,
       height: 40,
       "&:hover": {
         "& svg": {
-          fill: colors.dirtyBlue
+          "& g": {
+            fill: colors.blue
+          }
+        }
+      },
+      "&:focus": {
+        "& svg": {
+          "& g": {
+            fill: colors.blue
+          }
         }
       },
       "& svg": {
