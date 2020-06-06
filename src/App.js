@@ -24,8 +24,6 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    counterReset: "section 0",
-    minHeight: "100vh",
     color: colors.white,
     margin: "0 auto",
     padding: "0px 150px",
