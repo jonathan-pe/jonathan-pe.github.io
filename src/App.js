@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Navbar from './components/navbar.js';
 import Hero from './components/hero.js';
-import Resume from './components/resume.js';
+import AboutMe from './components/aboutMe.js';
+import Experience from './components/experience.js';
 import Music from './components/music.js';
 import League from './components/league.js';
 import colors from './config/colors';
@@ -12,6 +13,9 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       "@global": {
+        html: {
+          scrollBehavior: "smooth",
+        },
         body: {
           backgroundColor: colors.darkBlue,
           color: colors.white,
@@ -58,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const styles = useStyles();
+  const aboutMe = useRef(null);
 
   return (
     <React.Fragment>
@@ -66,7 +71,8 @@ export default function App() {
         <Navbar />
         <div className={styles.main}>
           <Hero />
-          <Resume />
+          <AboutMe />
+          <Experience />
           <Music />
           <League />
         </div>

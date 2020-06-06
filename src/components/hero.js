@@ -72,7 +72,7 @@ export default function Hero() {
     const heroContent = [greeting, header, subtitle, caption, contactButton];
 
     return (
-        <section className={styles.hero} id="back-to-top-anchor">
+        <section className={styles.hero} id="hero">
             <TransitionGroup component={null}>
                 {heroContent.map((item, i) => (
                     <CSSTransition key={i} classNames="fadeup" in={true} timeout={300}>

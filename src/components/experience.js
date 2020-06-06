@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    resume: {
+    experience: {
         minHeight: "100vh",
         display: "flex",
         padding: 50,
@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Resume() {
+export default function Experience() {
     const styles = useStyles();
     return (
-        <section className={styles.resume}>
-            Resume
+        <section className={styles.experience} id="experience">
+            Experience
         </section>
     );
 }

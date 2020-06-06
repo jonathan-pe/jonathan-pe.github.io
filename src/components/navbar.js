@@ -1,9 +1,8 @@
 import React from 'react';
-import constants from '../config/constants';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import logo from '../images/logo.svg';
+import Logo from './logo';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import colors from '../config/colors';
@@ -27,17 +26,30 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   logo: {
-    width: 40,
-    height: 30,
-    marginLeft: 30,
-    alignItems: "flex-start"
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    "& a": {
+      display: "block",
+      width: 40,
+      height: 40,
+      "&:hover": {
+        "& svg": {
+          fill: colors.dirtyBlue
+        }
+      },
+      "& svg": {
+        width: 40,
+        height: 40,
+      }
+    }
   },
   appBar: {
     backgroundColor: colors.darkBlue,
     minHeight: 50
   },
   navButton: {
-    padding: 10
+    margin: 10
   },
   navButtons: {
     flexGrow: 1,
@@ -56,7 +68,11 @@ export default function Navbar(props) {
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
           <AppBar className={styles.appBar}>
             <Toolbar>
-              <img src={logo} alt="logo" className={styles.logo} />
+              <div className={styles.logo}>
+                <a href="/">
+                  <Logo />
+                </a>
+              </div>
               <div className={styles.navButtons}>
                 <Button className={styles.navButton} href="#aboutMe">
                   About Me
@@ -70,7 +86,7 @@ export default function Navbar(props) {
                 <Button className={styles.navButton} href="#league">
                   League of Legends
                 </Button>
-                <Button variant="outlined" target="_blank" rel="noopener noreferrer" href={resume}>
+                <Button variant="outlined" target="_blank" rel="noopener noreferrer" className={styles.navButton} href={resume}>
                   Resumé
                 </Button>
               </div>

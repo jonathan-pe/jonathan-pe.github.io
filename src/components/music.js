@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Music() {
     const styles = useStyles();
     return (
-        <section className={styles.music}>
+        <section className={styles.music} id="music">
             <img src={animatedLogo} alt="animated logo" className={styles.animatedLogo} />
         </section>
     );

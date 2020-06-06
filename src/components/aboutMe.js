@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    league: {
+    aboutMe: {
         minHeight: "100vh",
         display: "flex",
         padding: 50,
@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function League() {
+export default function AboutMe() {
     const styles = useStyles();
     return (
-        <section className={styles.league} id="league">
-            League
+        <section className={styles.aboutMe} id="aboutMe">
+            About Me
         </section>
     );
 }
