@@ -6,6 +6,7 @@ import Hero from './components/hero.js';
 import Resume from './components/resume.js';
 import Music from './components/music.js';
 import League from './components/league.js';
+import Fab from './components/fab';
 import colors from './config/colors';
 
 const theme = createMuiTheme({
@@ -16,6 +17,30 @@ const theme = createMuiTheme({
           backgroundColor: colors.darkBlue,
           color: colors.white,
           fontFamily: "'Poppins', sans-serif",
+          lineHeight: 1.2
+        },
+        a: {
+          color: colors.blue,
+          textDecoration: "none",
+          "&:hover": {
+            color: colors.dirtyBlue
+          }
+        }
+      }
+    },
+    MuiButton: {
+      root: {
+        fontFamily: "'Poppins', sans-serif",
+        textTransform: "none",
+        color: colors.blue,
+        "&:hover": {
+          color: colors.dirtyBlue
+        }
+      },
+      outlined: {
+        borderColor: colors.blue,
+        "&:hover": {
+          borderColor: colors.dirtyBlue
         }
       }
     }
@@ -46,6 +71,7 @@ export default function App() {
           <Music />
           <League />
         </div>
+        <Fab />
       </ThemeProvider>
     </React.Fragment>
     

@@ -1,7 +1,9 @@
 import React from 'react';
 import colors from '../config/colors';
+import constants from '../config/constants';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     hero: {
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
       
     header: {
-        fontSize: 100,
+        fontSize: 80,
         color: colors.white,
         margin: "0px 0px 10px 0px"
     },
@@ -40,15 +42,15 @@ const useStyles = makeStyles((theme) => ({
     caption: {
         fontSize: 18,
         color: colors.grey,
-        margin: "50px 0px 0px 0px",
-        width: "50%",
-        maxWidth: 500
+        margin: "60px 0px 60px 0px",
+        width: "75%",
+        maxWidth: 600
     },
 
     twitchLink: {
         color: colors.blue,
         textDecoration: "none"
-    }
+    },
 }));
 
 export default function Hero() {
@@ -57,17 +59,20 @@ export default function Hero() {
     const greeting = () => (<h1 className={styles.greeting}>Hi there! I'm</h1>);
     const header = () => (<h2 className={styles.header}>Jonathan Pe.</h2>);
     const subtitle = () => (<h3 className={styles.subtitle}>I like coding, gaming and DJing.</h3>);
-    const caption = () => (<div className={styles.caption}>I'm a Software Engineer based 
-    in San Francisco, CA 
-    with interests in web & mobile development. 
-    I also enjoy playing video games and DJing 
-    on <a href="https://twitch.tv/jpeeeeeeeeeeee" target="_blank" rel="noopener noreferrer" className={styles.twitchLink}>Twitch</a>!
+    const caption = () => (<div className={styles.caption}>I'm a Software Engineer based in San Francisco, CA
+    with interests in web & mobile development. I also enjoy playing video games and DJing
+    on <a href={constants.twitchLink} target="_blank" rel="noopener noreferrer">Twitch</a>!
     </div>);
+    const contactButton = () => (
+        <Button variant="outlined" href={`mailto:${constants.personalEmail}`}>
+            Contact Me
+        </Button>
+    );
 
-    const heroContent = [greeting, header, subtitle, caption];
+    const heroContent = [greeting, header, subtitle, caption, contactButton];
 
     return (
-        <section className={styles.hero}>
+        <section className={styles.hero} id="back-to-top-anchor">
             <TransitionGroup component={null}>
                 {heroContent.map((item, i) => (
                     <CSSTransition key={i} classNames="fadeup" in={true} timeout={300}>
