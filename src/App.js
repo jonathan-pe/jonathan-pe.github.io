@@ -6,7 +6,6 @@ import Hero from './components/hero.js';
 import Resume from './components/resume.js';
 import Music from './components/music.js';
 import League from './components/league.js';
-import Fab from './components/fab';
 import colors from './config/colors';
 
 const theme = createMuiTheme({
@@ -71,7 +70,6 @@ export default function App() {
           <Music />
           <League />
         </div>
-        <Fab />
       </ThemeProvider>
     </React.Fragment>
     
