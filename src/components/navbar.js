@@ -74,32 +74,52 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
   const styles = useStyles();
 
+  const aboutMe = (
+    <Button Button className={styles.navButton} href="#aboutMe">
+      About Me
+    </Button>
+  );
+  const experience = (
+    <Button className={styles.navButton} href="#experience">
+      Experience
+    </Button>
+  );
+  const music = (
+    <Button Button className={styles.navButton} href="#music">
+      Music
+    </Button>
+  );
+  const league = (
+    <Button Button className={styles.navButton} href="#league">
+      League
+    </Button>
+  );
+  const resumeButton = (
+    <Button variant="outlined" target="_blank" rel="noopener noreferrer" className={styles.navButton} href={resume}>
+      Resumé
+    </Button>
+  );
+
+  const navItems = [aboutMe, experience, music, league, resumeButton]
+
   return (
     <ElevationScroll {...props} className={styles.navbar}>
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
           <AppBar className={styles.appBar}>
             <Toolbar>
-              <div className={styles.logo}>
-                <a href="/">
-                  <Logo />
-                </a>
-              </div>
+              <Slide direction="down" in={true} timeout={300} style={{ transitionDelay: 1000 }}>
+                <div className={styles.logo}>
+                  <a href="/">
+                    <Logo />
+                  </a>
+                </div>
+              </Slide>
               <div className={styles.navButtons}>
-                <Button className={styles.navButton} href="#aboutMe">
-                  About Me
-                </Button>
-                <Button className={styles.navButton} href="#experience">
-                  Experience
-                </Button>
-                <Button className={styles.navButton} href="#music">
-                  Music
-                </Button>
-                <Button className={styles.navButton} href="#league">
-                  League of Legends
-                </Button>
-                <Button variant="outlined" target="_blank" rel="noopener noreferrer" className={styles.navButton} href={resume}>
-                  Resumé
-                </Button>
+                {navItems.map((item, i) => (
+                  <Slide direction="down" in={true} key={i} timeout={300} style={{ transitionDelay: 1000 + i * 100}}>
+                    {item}
+                  </Slide>
+                ))}
               </div>
             </Toolbar>
           </AppBar>

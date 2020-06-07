@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Navbar from './components/navbar.js';
@@ -77,7 +77,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const styles = useStyles();
-  const aboutMe = useRef(null);
 
   return (
     <React.Fragment>
@@ -93,6 +92,5 @@ export default function App() {
         </div>
       </ThemeProvider>
     </React.Fragment>
-    
   );
 }
