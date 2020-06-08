@@ -33,6 +33,7 @@ const theme = createMuiTheme({
           padding: "150px 0px",
           margin: "0 auto",
           maxWidth: 1000,
+          position: "relative"
         },
         ".flexCenter": {
           display: "flex",

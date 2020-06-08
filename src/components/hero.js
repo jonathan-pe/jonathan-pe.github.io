@@ -3,7 +3,7 @@ import colors from '../config/colors';
 import constants from '../config/constants';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Slide from '@material-ui/core/Slide';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
     hero: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "flex-start",
         WebkitBoxPack: "center",
-        WebkitBoxAlign: "center"
+        WebkitBoxAlign: "center",
     },
     greeting: {
         color: colors.blue,
@@ -57,7 +57,7 @@ export default function Hero() {
     );
     const caption = (
         <div className={styles.caption}>I'm a Software Engineer based in San Francisco, CA
-            with interests in web & mobile development. I also enjoy playing video games and DJing
+            interested in web & mobile development. I also enjoy playing video games and DJing
             on <a href={constants.twitchLink} target="_blank" rel="noopener noreferrer">Twitch</a>!
         </div>
     );
@@ -72,9 +72,9 @@ export default function Hero() {
     return (
         <section className={styles.hero + " flexCenter"} id="hero">
             {heroContent.map((item, i) => (
-                <Slide direction="right" in={true} key={i} timeout={300} style={{ transitionDelay: 1000 + i * 100}}>
+                <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 1000 + i * 100, overflow: "hidden"}}>
                     {item}
-                </Slide>
+                </Fade>
             ))}
         </section>
     );

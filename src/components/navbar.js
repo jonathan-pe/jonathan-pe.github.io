@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Logo from './logo';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import Fade from '@material-ui/core/Fade';
 import colors from '../config/colors';
 import Button from '@material-ui/core/Button';
 import resume from '../docs/Resumé.pdf';
@@ -74,23 +75,29 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
   const styles = useStyles();
 
+  const [title, setTitle] = useState("Jonathan Pe | Person");
+
+  useEffect(() => {
+    document.title = `${title}`;
+  });
+
   const aboutMe = (
-    <Button Button className={styles.navButton} href="#aboutMe">
+    <Button Button className={styles.navButton} href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
       About Me
     </Button>
   );
   const experience = (
-    <Button className={styles.navButton} href="#experience">
+    <Button className={styles.navButton} href="#experience" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
       Experience
     </Button>
   );
   const music = (
-    <Button Button className={styles.navButton} href="#music">
+    <Button Button className={styles.navButton} href="#music" onClick={() => setTitle("Jonathan Pe | DJ")}>
       Music
     </Button>
   );
   const league = (
-    <Button Button className={styles.navButton} href="#league">
+    <Button Button className={styles.navButton} href="#league" onClick={() => setTitle("Jonathan Pe | Gamer")}>
       League
     </Button>
   );
@@ -107,18 +114,18 @@ export default function Navbar(props) {
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
           <AppBar className={styles.appBar}>
             <Toolbar>
-              <Slide direction="down" in={true} timeout={300} style={{ transitionDelay: 1000 }}>
+              <Fade in={true} timeout={500} style={{ transitionDelay: 1000 }}>
                 <div className={styles.logo}>
                   <a href="/">
                     <Logo />
                   </a>
                 </div>
-              </Slide>
+              </Fade>
               <div className={styles.navButtons}>
                 {navItems.map((item, i) => (
-                  <Slide direction="down" in={true} key={i} timeout={300} style={{ transitionDelay: 1000 + i * 100}}>
+                  <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 1000 + i * 100 }}>
                     {item}
-                  </Slide>
+                  </Fade>
                 ))}
               </div>
             </Toolbar>

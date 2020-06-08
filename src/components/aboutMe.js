@@ -1,20 +1,20 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import SectionHeader from './sectionHeader';
 
 const useStyles = makeStyles((theme) => ({
     aboutMe: {
-        minHeight: "100vh",
-        display: "flex",
-        padding: 50,
-        justifyContent: "center"
+        alignItems: "flex-start"
     },
 }));
 
 export default function AboutMe() {
     const styles = useStyles();
     return (
-        <section className={styles.aboutMe + " flexCenter"} id="aboutMe">
-            About Me
+        <section id="aboutMe">
+            <div className={styles.aboutMe + " flexBetween"}>
+                <SectionHeader text="About Me" />
+            </div>
         </section>
     );
 }
