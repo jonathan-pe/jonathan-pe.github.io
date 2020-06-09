@@ -8,7 +8,8 @@ import Slide from '@material-ui/core/Slide';
 import Fade from '@material-ui/core/Fade';
 import colors from '../config/colors';
 import Button from '@material-ui/core/Button';
-import resume from '../docs/Resumé.pdf';
+import Link from '@material-ui/core/Link';
+import resume from '../docs/Resume.pdf';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -82,32 +83,27 @@ export default function Navbar(props) {
   });
 
   const aboutMe = (
-    <Button Button className={styles.navButton} href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
-      About Me
+    <Button className={styles.navButton} href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
+      Person
     </Button>
   );
-  const experience = (
-    <Button className={styles.navButton} href="#experience" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
-      Experience
+  const softwareEngineer = (
+    <Button className={styles.navButton} href="#softwareEngineer" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
+      Software Engineer
     </Button>
   );
-  const music = (
-    <Button Button className={styles.navButton} href="#music" onClick={() => setTitle("Jonathan Pe | DJ")}>
-      Music
+  const DJ = (
+    <Button className={styles.navButton} href="#dj" onClick={() => setTitle("Jonathan Pe | DJ")}>
+      DJ
     </Button>
   );
-  const league = (
-    <Button Button className={styles.navButton} href="#league" onClick={() => setTitle("Jonathan Pe | Gamer")}>
-      League
-    </Button>
-  );
-  const resumeButton = (
-    <Button variant="outlined" target="_blank" rel="noopener noreferrer" className={styles.navButton} href={resume}>
-      Resumé
+  const gamer = (
+    <Button className={styles.navButton} href="#gamer" onClick={() => setTitle("Jonathan Pe | Gamer")}>
+      Gamer
     </Button>
   );
 
-  const navItems = [aboutMe, experience, music, league, resumeButton]
+  const navItems = [aboutMe, softwareEngineer, DJ, gamer];
 
   return (
     <ElevationScroll {...props} className={styles.navbar}>
@@ -116,9 +112,9 @@ export default function Navbar(props) {
             <Toolbar>
               <Fade in={true} timeout={500} style={{ transitionDelay: 1000 }}>
                 <div className={styles.logo}>
-                  <a href="/">
+                  <Link href="/">
                     <Logo />
-                  </a>
+                  </Link>
                 </div>
               </Fade>
               <div className={styles.navButtons}>
