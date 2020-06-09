@@ -4,8 +4,6 @@ import SectionHeader from '../components/sectionHeader';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import resume from '../docs/Resume.pdf';
-import Link from '@material-ui/core/Link';
-import constants from '../config/constants';
 import ListContainer from '../components/listContainer';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +27,6 @@ export default function Experience() {
             <SectionHeader text="Software Engineer" />
             <div className={"flexBetween"}>
                 <div className={styles.container}>
-                    <Typography paragraph={true}>
-                    </Typography>
                     <Typography paragraph={true}>
                         I'm a Full Stack Software Engineer who loves developing mobile and web applications.
                         However, recently, I've been interested in deeply exploring Front-End development and am starting

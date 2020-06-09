@@ -8,8 +8,6 @@ import Slide from '@material-ui/core/Slide';
 import Fade from '@material-ui/core/Fade';
 import colors from '../config/colors';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import resume from '../docs/Resume.pdf';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -105,7 +103,7 @@ export default function Navbar(props) {
       <Slide appear={false} direction="down" in={!useScrollTrigger()}>
           <AppBar className={styles.appBar}>
             <Toolbar>
-              <Fade in={true} timeout={500} style={{ transitionDelay: 1000 }}>
+              <Fade in={true} timeout={500}>
                 <div className={styles.logo}>
                   <Button href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
                     <Logo />
@@ -114,7 +112,7 @@ export default function Navbar(props) {
               </Fade>
               <div className={styles.navButtons}>
                 {navItems.map((item, i) => (
-                  <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 1000 + i * 100 }}>
+                  <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 100 + i * 100 }}>
                     {item}
                   </Fade>
                 ))}

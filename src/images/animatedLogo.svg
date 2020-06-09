@@ -9,12 +9,12 @@
     svg path {
         stroke-dashoffset: 35220;
         stroke-dasharray: 35220;
-        animation: draw 2s forwards;
+        animation: draw 1.5s forwards;
     }
 
     svg g {
         fill-opacity: 0;
-        animation: fill 2s 2s forwards;
+        animation: fill 1.5s 1.5s forwards;
     }
 
     @keyframes draw {

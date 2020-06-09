@@ -1,18 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import SectionHeader from '../components/sectionHeader';
 import Link from '@material-ui/core/Link';
 import constants from '../config/constants';
 import ListContainer from '../components/listContainer';
 import Typography from '@material-ui/core/Typography';
-import animatedLogo from '../images/animatedLogo.svg';
-
-const useStyles = makeStyles((theme) => ({
-    animatedLogo: {
-        height: "auto",
-        width: "25%"
-    },
-}));
 
 export default function DJ() {
     const shows = ["Welcome To The Jungle, B*TCH (04/25/20)", "Trivecta @ Origin SF (10/18/19)"];
@@ -40,8 +31,6 @@ export default function DJ() {
                     <ListContainer items={shows}/>
                 </div>
             </div>
-            
-            {/* <img src={animatedLogo} alt="animated logo" className={styles.animatedLogo} /> */}
         </section>
     );
 }
