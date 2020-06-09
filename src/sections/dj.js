@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DJ() {
-    const shows = ["Trivecta @ Origin SF (10/18/19)"];
+    const shows = ["Welcome To The Jungle, B*TCH (04/25/20)", "Trivecta @ Origin SF (10/18/19)"];
 
     return (
         <section id="dj">
@@ -23,14 +23,16 @@ export default function DJ() {
             <div className={"flexBetween"}>
                 <div>
                     <Typography paragraph={true}>
-                        I'm a DJ who loves to play Electronic Dance Music (EDM)! I like to play a variety of
+                        I'm a DJ who loves to play Electronic Dance Music (EDM)! I like mixing a variety of
                         subgenres like Future Bass, Dubstep, Trap and House. I also like to 
                         occasionally play some Hip Hop.
                     </Typography>
                     <Typography paragraph={true}>
                         I stream once or twice week for a couple of hours 
-                        on <Link href={constants.twitchLink}>Twitch</Link> and I like to make
-                        mixes on <Link href={constants.soundcloudLink}>SoundCloud</Link> too!
+                        on <Link href={constants.twitchLink}>Twitch</Link>. If you'd like to know
+                        when I'll be streaming, then follow me
+                        on <Link href={constants.instagramLink}>Instagram</Link>! I also like to post
+                        some mixes on <Link href={constants.soundcloudLink}>SoundCloud</Link> too.
                     </Typography>
                     <Typography paragraph={true}>
                         Recent Shows:

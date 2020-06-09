@@ -34,7 +34,7 @@ export default function Experience() {
                     <Typography paragraph={true}>
                         I'm a Full Stack Software Engineer who loves developing mobile and web applications.
                         However, recently, I've been interested in deeply exploring Front-End development and am starting
-                        to learn as much as I can about building beautiful and highly-functional interfaces.
+                        to learn as much as I can about building aesthetic and highly-functional interfaces.
                     </Typography>
                     <Typography paragraph={true}>
                         Technologies I've been working with recently:
