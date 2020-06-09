@@ -109,20 +109,6 @@ const theme = createMuiTheme({
         overflow: "hidden",
       }
     },
-    MuiListItem: {
-      root: {
-        padding: "0px 0px 0px 20px",
-        marginBottom: 10,
-        "&::before": {
-          content: '"○"',
-          position: "absolute",
-          left: 0,
-          color: colors.blue,
-          fontSize: 16,
-          lineHeight: 0
-        }
-      }
-    },
     MuiListItemText: {
       root: {
         marginTop: 0,

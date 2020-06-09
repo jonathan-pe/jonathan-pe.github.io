@@ -82,11 +82,6 @@ export default function Navbar(props) {
     document.title = `${title}`;
   });
 
-  const aboutMe = (
-    <Button className={styles.navButton} href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
-      Person
-    </Button>
-  );
   const softwareEngineer = (
     <Button className={styles.navButton} href="#softwareEngineer" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
       Software Engineer
@@ -103,7 +98,7 @@ export default function Navbar(props) {
     </Button>
   );
 
-  const navItems = [aboutMe, softwareEngineer, DJ, gamer];
+  const navItems = [softwareEngineer, DJ, gamer];
 
   return (
     <ElevationScroll {...props} className={styles.navbar}>
@@ -112,9 +107,9 @@ export default function Navbar(props) {
             <Toolbar>
               <Fade in={true} timeout={500} style={{ transitionDelay: 1000 }}>
                 <div className={styles.logo}>
-                  <Link href="/">
+                  <Button href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
                     <Logo />
-                  </Link>
+                  </Button>
                 </div>
               </Fade>
               <div className={styles.navButtons}>

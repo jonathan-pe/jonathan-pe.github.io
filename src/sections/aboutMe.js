@@ -37,11 +37,8 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 600
     },
     menuItem: {
-        margin: 0,
+        margin: "5px 10px",
         padding: 0,
-        "&::before": {
-            content: '""'
-        }
     }
 }));
 
@@ -78,11 +75,11 @@ export default function AboutMe() {
                 Contact Me
             </Button>
             <Menu id="email-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-                <MenuItem disableGutters={true} onClick={handleClose}>
-                    <Link className={styles.menuItem} href={`mailto:${constants.personalEmail}`}>Business Inquiries</Link>
+                <MenuItem className={styles.menuItem} disableGutters={true} onClick={handleClose}>
+                    <Link href={`mailto:${constants.personalEmail}`}>Business Inquiries</Link>
                 </MenuItem>
-                <MenuItem disableGutters={true} onClick={handleClose}>
-                    <Link className={styles.menuItem} href={`mailto:${constants.musicEmail}`}>Music/DJ Inquiries</Link>
+                <MenuItem className={styles.menuItem} disableGutters={true} onClick={handleClose}>
+                    <Link href={`mailto:${constants.musicEmail}`}>Music/DJ Inquiries</Link>
                 </MenuItem>
             </Menu>
         </div>
