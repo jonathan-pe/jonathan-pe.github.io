@@ -4,7 +4,6 @@ import anime from 'animejs';
 import Logo from '../components/logo';
 import { theme, mixins } from '../styles';
 
-
 const StyledDiv = styled.div`
     ${mixins.flexCenter}
     position: fixed;
@@ -64,7 +63,7 @@ export default function Loader({ finishLoading }) {
         const timeout = setTimeout(() => setIsMounted(true), 10);
         animate();
         return () => clearTimeout(timeout);
-    }, []);
+    });
 
     return (
         <StyledDiv>

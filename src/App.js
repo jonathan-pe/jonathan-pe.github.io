@@ -32,9 +32,9 @@ export default function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      {/* {isLoading && isHome ? (
+      {isLoading && isHome ? (
         <Loader finishLoading={() => setIsLoading(false)}/>
-      ) : ( */}
+      ) : (
         <React.Fragment>
           <Navbar />
           <div>
@@ -44,7 +44,7 @@ export default function App() {
             <Gamer />
           </div>
         </React.Fragment>
-      {/* )} */}
+      )}
     </React.Fragment>
   );
 }
