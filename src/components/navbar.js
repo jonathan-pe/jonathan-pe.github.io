@@ -1,125 +1,128 @@
-import React, { useState, useEffect }from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import Logo from './logo';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
-import Fade from '@material-ui/core/Fade';
-import colors from '../config/colors';
-import Button from '@material-ui/core/Button';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { theme, mixins } from '../styles';
 
-function ElevationScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 50
-  });
+const { colors, fonts } = theme;
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
+const StyledHeader = styled.header`
+  ${mixins.flexBetween};
+  position: fixed;
+  top: 0;
+  padding: 0px 50px;
+  background-color: ${colors.darkBlue};
+  transition: ${theme.transition};
+  filter: none !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+  width: 100%;
+  height: ${props => (props.scrollDirection === 'none' ? theme.navHeight : theme.navScrollHeight)};
+  box-shadow: ${props => props.scrollDirection === 'up' ? `0 10px 30px -10px ${colors.black}` : 'none'};
+  transform: translateY(
+    ${props => (props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
+  );
+`;
 
-const useStyles = makeStyles((theme) => ({
-  navbar: {
-    flexGrow: 1,
-  },
-  logo: {
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-    marginLeft: 30,
-    padding: 5,
-    "& a": {
-      display: "block",
-      width: 40,
-      height: 40,
-      "&:hover": {
-        "& svg": {
-          "& g": {
-            fill: colors.blue
-          }
+const StyledNav = styled.nav`
+  ${mixins.flexBetween};
+  position: relative;
+  width: 100%;
+  color: ${colors.blue};
+  font-family: ${fonts.Poppins};
+`;
+
+const StyledNavLink = styled.a`
+  margin: 10px 25px;
+`;
+
+const StyledLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-left: 20px;
+  padding: 5px;
+  a {
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      svg {
+        g {
+          fill: ${colors.blue}
         }
-      },
-      "&:focus": {
-        "& svg": {
-          "& g": {
-            fill: colors.blue
-          }
-        }
-      },
-      "& svg": {
-        width: 40,
-        height: 40,
       }
     }
-  },
-  appBar: {
-    backgroundColor: colors.darkBlue,
-    minHeight: 50
-  },
-  navButton: {
-    margin: 10
-  },
-  navButtons: {
-    flexGrow: 1,
-    justifyContent: "flex-end",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
+
+    &:focus {
+      svg {
+        g {
+          fill: ${colors.blue}
+        }
+      }
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
   }
-}));
+`;
 
-export default function Navbar(props) {
-  const styles = useStyles();
-
-  const [title, setTitle] = useState("Jonathan Pe | Person");
+export default function Navbar() {
+  const [title, setTitle] = useState("Jonathan Pe | Human");
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    document.title = `${title}`;
-  });
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title])
 
   const softwareEngineer = (
-    <Button className={styles.navButton} href="#softwareEngineer" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
+    <StyledNavLink href="#softwareEngineer" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
       Software Engineer
-    </Button>
+    </StyledNavLink>
   );
   const DJ = (
-    <Button className={styles.navButton} href="#dj" onClick={() => setTitle("Jonathan Pe | DJ")}>
+    <StyledNavLink href="#dj" onClick={() => setTitle("Jonathan Pe | DJ")}>
       DJ
-    </Button>
+    </StyledNavLink>
   );
   const gamer = (
-    <Button className={styles.navButton} href="#gamer" onClick={() => setTitle("Jonathan Pe | Gamer")}>
+    <StyledNavLink href="#gamer" onClick={() => setTitle("Jonathan Pe | Gamer")}>
       Gamer
-    </Button>
+    </StyledNavLink>
   );
 
   const navItems = [softwareEngineer, DJ, gamer];
 
   return (
-    <ElevationScroll {...props} className={styles.navbar}>
-      <Slide appear={false} direction="down" in={!useScrollTrigger()}>
-          <AppBar className={styles.appBar}>
-            <Toolbar>
-              <Fade in={true} timeout={500}>
-                <div className={styles.logo}>
-                  <Button href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Person")}>
-                    <Logo />
-                  </Button>
-                </div>
-              </Fade>
-              <div className={styles.navButtons}>
-                {navItems.map((item, i) => (
-                  <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 100 + i * 100 }}>
-                    {item}
-                  </Fade>
-                ))}
-              </div>
-            </Toolbar>
-          </AppBar>
-      </Slide>
-    </ElevationScroll>
+    <StyledHeader>
+      <StyledNav>
+        <TransitionGroup>
+          {isMounted && (
+            <CSSTransition key="logo" classNames="fade" timeout={300} style={{ transitionDelay: "100ms" }}>
+              <StyledLogo>
+                <a href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Human")}>
+                  <Logo />
+                </a>
+              </StyledLogo>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
+
+        <TransitionGroup>
+          {isMounted && navItems.map((item, i) => (
+            <CSSTransition key={i} classNames="fade" timeout={300} style={{ transitionDelay: `${100 + i * 100}ms` }}>
+              {item}
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </StyledNav>
+    </StyledHeader>
   );
 }

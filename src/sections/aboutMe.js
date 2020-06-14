@@ -1,100 +1,71 @@
-import React from 'react';
-import colors from '../config/colors';
-import constants from '../config/constants';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Fade from '@material-ui/core/Fade';
-import Typography from '@material-ui/core/Typography';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Link from '@material-ui/core/Link';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { Section, theme, mixins } from '../styles';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-const useStyles = makeStyles((theme) => ({
-    aboutMe: {
-        minHeight: "100vh",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        WebkitBoxPack: "center",
-        WebkitBoxAlign: "center",
-    },
-    greeting: {
-        color: colors.blue,
-        fontSize: 20,
-        fontWeight: "normal",
-        fontFamily: "'Courier New', Courier, monospace",
-        margin: "0px 0px 10px 2px"
-    },
-    header: {
-        margin: "0px 0px 10px 0px"
-    },
-    subtitle: {
-        color: colors.grey,
-        margin: 0
-    },
-    caption: {
-        margin: "60px 0px 60px 0px",
-        width: "75%",
-        maxWidth: 600
-    },
-    menuItem: {
-        margin: "5px 10px",
-        padding: 0,
-    }
-}));
+const { colors, fonts } = theme;
+
+const StyledSection = styled(Section)`
+    ${mixins.flexCenter};
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+
+const StyledGreeting = styled.h1`
+    color: ${colors.blue};
+    font-size: 20px;
+    font-weight: normal;
+    font-family: ${fonts.Courier};
+    margin: 0px 0px 10px 2px;
+`;
+
+const StyledTitle = styled.h2`
+    margin: 0px 0px 10px 0px;
+`;
+
+const StyledSubtitle = styled.h3`
+    color: ${colors.grey};
+    margin: 0;
+`;
+
+const StyledCaption = styled.div`
+    margin: 60px 0px 60px 0px;
+    width: 75%;
+    max-width: 600px;
+`;
 
 export default function AboutMe() {
-    const styles = useStyles();
+    const [isMounted, setIsMounted] = useState(false);
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    useEffect(() => { setIsMounted(true) }, [])
 
     const greeting = (
-        <Typography variant="h1" className={styles.greeting}>Hi there! I'm</Typography>
+        <StyledGreeting>Hi there! I'm</StyledGreeting>
     );
-    const header = (
-        <Typography variant="h2" className={styles.header}>Jonathan Pe.</Typography>
+    const title = (
+        <StyledTitle>Jonathan Pe.</StyledTitle>
     );
     const subtitle = (
-        <Typography variant="h3" className={styles.subtitle}>I like coding, gaming and DJing.</Typography>
+        <StyledSubtitle>I like coding, gaming and DJing.</StyledSubtitle>
     );
     const caption = (
-        <Typography className={styles.caption}>I'm a Software Engineer based in San Francisco, CA
+        <StyledCaption>I'm a Software Engineer based in San Francisco, CA
             interested in web & mobile development. I also enjoy playing video games and DJing!
-        </Typography>
-    );
-    const contactButton = (
-        <div>
-            <Button aria-controls="email-menu" aria-haspopup="true" variant="outlined" onClick={handleClick}>
-                Contact Me
-            </Button>
-            <Menu id="email-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-                <MenuItem className={styles.menuItem} disableGutters={true} onClick={handleClose}>
-                    <Link href={`mailto:${constants.personalEmail}`}>Business Inquiries</Link>
-                </MenuItem>
-                <MenuItem className={styles.menuItem} disableGutters={true} onClick={handleClose}>
-                    <Link href={`mailto:${constants.musicEmail}`}>Music/DJ Inquiries</Link>
-                </MenuItem>
-            </Menu>
-        </div>
-        
+        </StyledCaption>
     );
 
-    const content = [greeting, header, subtitle, caption, contactButton];
+    const content = [greeting, title, subtitle, caption];
 
     return (
-        <section className={styles.aboutMe + " flexCenter"} id="aboutMe">
-            {content.map((item, i) => (
-                <Fade in={true} key={i} timeout={500} style={{ transitionDelay: 1000 + i * 100 }}>
-                    {item}
-                </Fade>
-            ))}
-        </section>
+        <StyledSection id="aboutMe">
+            <TransitionGroup component={null}>
+                {isMounted && content.map((item, i) => (
+                    <CSSTransition key={i} classNames="fade" timeout={300} style={{ transitionDelay: `${1000 + i * 100}ms` }}>
+                        {item}
+                    </CSSTransition>
+                ))}
+            </TransitionGroup>
+        </StyledSection>
     );
 }

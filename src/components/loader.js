@@ -1,31 +1,76 @@
-import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import animatedLogo from '../images/animatedLogo.svg';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import anime from 'animejs';
+import Logo from '../components/logo';
+import { theme, mixins } from '../styles';
 
-const useStyles = makeStyles((theme) => ({
-    loader: {
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-    },
-    animatedLogo: {
-        height: "auto",
-        width: "25%"
+
+const StyledDiv = styled.div`
+    ${mixins.flexCenter}
+    position: fixed;
+    width: 100%;
+    height: 100%;
+`;
+
+const StyledLogo = styled.div`
+    width: max-content;
+    max-width: 100px;
+    transition: ${theme.transition};
+    opacity: ${props => (props.isMounted ? 1 : 0)};
+
+    svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+        fill: none;
+        user-select: none;
+        #jpe {
+            fill-opacity: 0;
+        }
     }
-}));
+`;
 
 export default function Loader({ finishLoading }) {
-    const styles = useStyles();
+    const animate = () => {
+        const loader = anime.timeline({
+            complete: () => finishLoading()
+        });
+
+        loader.add({
+            targets: '#logo path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutQuart',
+            duration: 2000,
+            delay: 300
+        }).add({
+            targets: '#logo #jpe',
+            duration: 700,
+            easing: 'easeInOutQuart',
+            fillOpacity: 1
+        }).add({
+            targets: '#logo',
+            duration: 300,
+            delay: 800,
+            easing: 'easeInOutQuart',
+            opacity: 0,
+            scale: 0.1
+        });
+    }
+
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            finishLoading()
-        }, 3200);
-    })
+        const timeout = setTimeout(() => setIsMounted(true), 10);
+        animate();
+        return () => clearTimeout(timeout);
+    }, []);
 
     return (
-        <div className={styles.loader}>
-            <object type="image/svg+xml" aria-label="animated logo" data={animatedLogo} alt="animated logo" className={styles.animatedLogo} />
-        </div>
+        <StyledDiv>
+            <StyledLogo isMounted={isMounted}>
+                <Logo />
+            </StyledLogo>
+        </StyledDiv>
     );
 }

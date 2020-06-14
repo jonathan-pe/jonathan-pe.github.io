@@ -1,30 +1,29 @@
 import React from 'react';
-import colors from '../config/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
+import { theme } from '../styles';
 
-const useStyles = makeStyles((theme) => ({
-    sectionHeader: {
-        fontSize: 32,
-        alignItems: "center",
-        display: "flex",
-        width: "100%",
-        whiteSpace: "nowrap",
-        margin: "10px 0px 40px",
-        "&::after": {
-            content: '""',
-            display: "block",
-            height: 1,
-            width: 300,
-            backgroundColor: colors.grey,
-            position: "relative",
-            marginLeft: 20
-          }
-    },
-}));
+const { colors, fontSizes } = theme;
+
+const StyledSectionHeader = styled.h3`
+    font-size: ${fontSizes.large};
+    align-items: center;
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    margin: 10px 0 40px 0;
+    &:after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 300px;
+        background-color: ${colors.grey};
+        position: relative;
+        margin-left: 20px;
+    }
+`;
 
 export default function SectionHeader(props) {
-    const styles = useStyles();
     return (
-        <h3 className={styles.sectionHeader}>{props.text}</h3>
+        <StyledSectionHeader>{props.text}</StyledSectionHeader>
     );
 }

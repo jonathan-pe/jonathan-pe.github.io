@@ -2,11 +2,11 @@ import React from 'react';
 
 const Logo = () => (
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="1484.000000pt" height="1090.000000pt" viewBox="0 0 1484.000000 1090.000000"
+ width="1484.000000pt" id="logo" height="1090.000000pt" viewBox="0 0 1484.000000 1090.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,1090.000000) scale(0.100000,-0.100000)"
-fill="#FFFFFF" stroke="none">
+fill="#FFFFFF" id="jpe" stroke="#FFFFFF" strokeWidth="30">
 <path d="M2745 10890 c-511 -57 -927 -395 -1078 -876 -123 -390 43 -848 388
 -1073 151 -99 318 -145 520 -144 152 0 231 17 350 73 253 118 457 393 532 715
 27 121 25 349 -6 427 -73 187 -303 244 -450 112 -29 -26 -58 -65 -72 -96 -21

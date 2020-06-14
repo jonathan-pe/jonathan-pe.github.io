@@ -1,38 +1,41 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import colors from '../config/colors';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import styled from 'styled-components';
+import { theme } from '../styles';
 
-const useStyles = makeStyles((theme) => ({
-    list: {
-        display: "grid"
-    },
-    listItem: {
-        padding: "0px 0px 0px 20px",
-        marginBottom: 10,
-        "&::before": {
-            content: '"○"',
-            position: "absolute",
-            left: 0,
-            color: colors.blue,
-            fontSize: 16,
-            lineHeight: 0
-        }
+const { colors, fontSizes } = theme;
+
+const StyledList = styled.ul`
+    display: grid;
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 20px 0 0 0;
+    grid-template-columns: repeat(2, minmax(140px, 300px));
+`;
+
+const StyledListItem = styled.li`
+    position: relative;
+    padding: 0px 0px 0px 20px;
+    margin-bottom: 10px;
+    font-size: ${fontSizes.small};
+    &:before {
+        content: '○';
+        position: absolute;
+        left: 0;
+        color: ${colors.blue};
+        font-size: ${fontSizes.small};
+        line-height: 16px;
     }
-}));
+`;
 
 export default function ListContainer(props) {
-    const styles = useStyles();
-
     return (
-        <List disablePadding={true} className={styles.list}>
+        <StyledList numColumns={props.numColumns}>
             {props.items.map((item, i) => (
-                <ListItem key={i} disableGutters={true} className={styles.listItem}>
-                    <ListItemText className={styles.listItemText}>{item}</ListItemText>
-                </ListItem>
+                <StyledListItem key={i}>
+                    {item}
+                </StyledListItem>
             ))}
-        </List>
+        </StyledList>
     )
 }
