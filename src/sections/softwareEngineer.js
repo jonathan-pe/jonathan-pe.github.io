@@ -1,8 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import SectionHeader from '../components/sectionHeader';
 import resume from '../docs/Resume.pdf';
 import ListContainer from '../components/listContainer';
-import { Button } from '../styles';
+import { Link } from '../styles';
+
+const StyledLink = styled(Link)`
+    display: inline-block;
+    margin-top: 20px;
+`;
 
 export default function Experience() {
 
@@ -21,9 +27,9 @@ export default function Experience() {
                     Technologies I've been working with recently:
                 </p>
                 <ListContainer items={technologies}/>
-                <Button className="outlined" target="_blank" rel="noopener noreferrer" href={resume}>
+                <StyledLink className="buttoned outlined" target="_blank" rel="noopener noreferrer" href={resume}>
                     Resumé
-                </Button>
+                </StyledLink>
             </div>
         </section>
     );
