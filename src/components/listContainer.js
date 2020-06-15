@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { theme } from '../styles';
+import { theme, media } from '../styles';
 
 const { colors, fontSizes } = theme;
 
@@ -19,12 +19,14 @@ const StyledListItem = styled.li`
     padding: 0px 0px 0px 20px;
     margin-bottom: 10px;
     font-size: ${fontSizes.small};
+    ${media.phone`font-size: ${fontSizes.xs};`}
     &:before {
         content: '○';
         position: absolute;
         left: 0;
         color: ${colors.blue};
         font-size: ${fontSizes.small};
+        ${media.phone`font-size: ${fontSizes.xs};`}
         line-height: 16px;
     }
 `;

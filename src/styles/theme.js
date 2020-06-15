@@ -19,9 +19,10 @@ const theme = {
         h1: '100px',
         h2: '80px',
         h3: '50px',
+        large: '32px',
         normal: '18px',
         small: '15px',
-        large: '32px'
+        xs: '12px'
     },
 
     easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',

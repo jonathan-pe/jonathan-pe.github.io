@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import Transitions from './Transitions';
+import media from './media';
 
 const { colors, fonts, fontSizes } = theme;
 
@@ -30,6 +31,8 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.2;
         font-weight: 400;
         font-size: ${fontSizes.normal};
+        ${media.phablet`font-size: ${fontSizes.small};`}
+        ${media.phone`font-size: ${fontSizes.xs};`}
 
         &.hidden {
             overflow: hidden;
@@ -48,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
     
     section {
         padding: 150px 0px;
+        ${media.tablet`padding: 100px 0;`};
         margin: 0 auto;
         max-width: 1000px;
     }
@@ -104,6 +108,7 @@ const GlobalStyle = createGlobalStyle`
             margin-top: 0;
             margin-bottom: 0;
             font-size: ${fontSizes.small};
+            ${media.phone`font-size: ${fontSizes.xs};`}
         }
     }
 

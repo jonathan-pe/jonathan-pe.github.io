@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import Navbar from './components/navbar.js';
 import AboutMe from './sections/aboutMe.js';
 import SoftwareEngineer from './sections/softwareEngineer.js';
@@ -6,6 +7,18 @@ import DJ from './sections/dj.js';
 import Gamer from './sections/gamer.js';
 import Loader from './components/loader';
 import GlobalStyle from './styles/GlobalStyle';
+import { media } from './styles';
+
+const StyledMain = styled.main`
+    padding: 0 150px;
+    ${media.desktop`padding: 0 100px;`};
+    ${media.tablet`padding: 0 50px;`};
+    ${media.phablet`padding: 0 25px;`};
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+`;
 
 export default function App() {
 
@@ -37,12 +50,14 @@ export default function App() {
             ) : (
                 <React.Fragment>
                     <Navbar />
-                    <div>
-                        <AboutMe />
-                        <SoftwareEngineer />
-                        <DJ />
-                        <Gamer />
-                    </div>
+                    <StyledMain>
+                        <div>
+                            <AboutMe />
+                            <SoftwareEngineer />
+                            <DJ />
+                            <Gamer />
+                        </div>
+                    </StyledMain>
                 </React.Fragment>
             )}
         </React.Fragment>

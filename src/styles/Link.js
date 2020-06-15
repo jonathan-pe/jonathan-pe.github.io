@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import theme from './theme';
+import media from './media';
 
-const { colors } = theme;
+const { colors, fontSizes } = theme;
 
 const Link = styled.a`
     text-decoration: none;
@@ -13,7 +14,8 @@ const Link = styled.a`
         border-radius: 0;
         text-transform: none;
         background-color: transparent;
-        font-size: 15px;
+        font-size: ${fontSizes.small};
+        ${media.phone`font-size: ${fontSizes.xs};`}
         font-family: 'Poppins', sans-serif;
 
         &:hover,

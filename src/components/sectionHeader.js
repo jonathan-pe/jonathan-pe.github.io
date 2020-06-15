@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { theme } from '../styles';
+import { theme, media } from '../styles';
 
 const { colors, fontSizes } = theme;
 
@@ -21,6 +21,8 @@ const StyledSectionHeader = styled.h3`
         position: relative;
         margin-left: 20px;
     }
+
+    ${media.phablet`font-size: ${fontSizes.normal};`};
 `;
 
 export default function SectionHeader(props) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Logo from './logo';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { theme, mixins } from '../styles';
+import { theme, mixins, media } from '../styles';
 
 const { colors, fonts } = theme;
 
@@ -24,6 +24,8 @@ const StyledHeader = styled.header`
         ${props => (props.scrollDirection === 'down' ? `-${theme.navScrollHeight}` : '0px')}
     );
     z-index: 99;
+    ${media.desktop`padding: 0 40px;`};
+    ${media.tablet`padding: 0 25px;`};
 `;
 
 const StyledNav = styled.nav`
