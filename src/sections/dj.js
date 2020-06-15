@@ -4,8 +4,6 @@ import constants from '../config/constants';
 import ListContainer from '../components/listContainer';
 
 export default function DJ() {
-    const shows = ['Welcome To The Jungle, B*TCH (04/25/20)', 'Trivecta @ Origin SF (10/18/19)'];
-
     return (
         <section id="dj">
             <SectionHeader text="DJ" />
@@ -18,15 +16,18 @@ export default function DJ() {
                     </p>
                     <p>
                         I stream once or twice week for a couple of hours 
-                        on <a target="_blank" rel="noopener noreferrer" href={constants.twitchLink}>Twitch</a>. If you'd like to know
-                        when I'll be streaming, then follow me
-                        on <a target="_blank" rel="noopener noreferrer" href={constants.instagramLink}>Instagram</a>! I also like to post
-                        some mixes on <a target="_blank" rel="noopener noreferrer" href={constants.soundcloudLink}>SoundCloud</a> too.
+                        on <a target="_blank" rel="noopener noreferrer" href={constants.twitchLink}>Twitch</a>. 
+                        If you'd like to know when I'll be streaming, then follow me
+                        on <a target="_blank" rel="noopener noreferrer" href={constants.instagramLink}>Instagram</a>! 
+                        I also like to post some mixes 
+                        on <a target="_blank" rel="noopener noreferrer" href={constants.soundcloudLink}>SoundCloud</a> too.
+                        Feel free to <a href={`mailto:${constants.musicEmail}`}>contact me</a> with any music inquiries
+                        you might have!
                     </p>
                     <p>
                         Recent Shows:
                     </p>
-                    <ListContainer items={shows}/>
+                    <ListContainer items={constants.shows}/>
                 </div>
             </div>
         </section>

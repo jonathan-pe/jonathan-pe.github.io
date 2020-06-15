@@ -1,11 +1,9 @@
 import React from 'react';
 import SectionHeader from '../components/sectionHeader';
 import ListContainer from '../components/listContainer';
+import constants from '../config/constants';
 
 export default function League() {
-
-    const games = ['League of Legends', 'CS:GO', 'Valorant'];
-
     return (
         <section id="gamer">
             <SectionHeader text="Gamer" />
@@ -19,7 +17,7 @@ export default function League() {
                 <p>
                     Games I've been playing recently:
                 </p>
-                <ListContainer items={games}/>
+                <ListContainer items={constants.games}/>
             </div>
         </section>
     );
