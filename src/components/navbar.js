@@ -71,58 +71,58 @@ const StyledLogo = styled.div`
 `;
 
 export default function Navbar() {
-  const [title, setTitle] = useState("Jonathan Pe | Human");
-  const [isMounted, setIsMounted] = useState(false);
+    const [title, setTitle] = useState('Jonathan Pe | Human');
+    const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
-  useEffect(() => {
-    document.title = title;
-  }, [title])
+    useEffect(() => {
+        document.title = title;
+    }, [title]);
 
-  const softwareEngineer = (
-    <StyledNavLink href="#softwareEngineer" onClick={() => setTitle("Jonathan Pe | Software Engineer")}>
+    const softwareEngineer = (
+        <StyledNavLink href="#softwareEngineer" onClick={() => setTitle('Jonathan Pe | Software Engineer')}>
       Software Engineer
-    </StyledNavLink>
-  );
-  const DJ = (
-    <StyledNavLink href="#dj" onClick={() => setTitle("Jonathan Pe | DJ")}>
+        </StyledNavLink>
+    );
+    const DJ = (
+        <StyledNavLink href="#dj" onClick={() => setTitle('Jonathan Pe | DJ')}>
       DJ
-    </StyledNavLink>
-  );
-  const gamer = (
-    <StyledNavLink href="#gamer" onClick={() => setTitle("Jonathan Pe | Gamer")}>
+        </StyledNavLink>
+    );
+    const gamer = (
+        <StyledNavLink href="#gamer" onClick={() => setTitle('Jonathan Pe | Gamer')}>
       Gamer
-    </StyledNavLink>
-  );
+        </StyledNavLink>
+    );
 
-  const navItems = [softwareEngineer, DJ, gamer];
+    const navItems = [softwareEngineer, DJ, gamer];
 
-  return (
-    <StyledHeader>
-      <StyledNav>
-        <TransitionGroup>
-          {isMounted && (
-            <CSSTransition key="logo" classNames="fade" timeout={300} style={{ transitionDelay: "100ms" }}>
-              <StyledLogo>
-                <a href="#aboutMe" onClick={() => setTitle("Jonathan Pe | Human")}>
-                  <Logo />
-                </a>
-              </StyledLogo>
-            </CSSTransition>
-          )}
-        </TransitionGroup>
+    return (
+        <StyledHeader>
+            <StyledNav>
+                <TransitionGroup>
+                    {isMounted && (
+                        <CSSTransition key="logo" classNames="fade" timeout={300} style={{ transitionDelay: '100ms' }}>
+                            <StyledLogo>
+                                <a href="#aboutMe" onClick={() => setTitle('Jonathan Pe | Human')}>
+                                    <Logo />
+                                </a>
+                            </StyledLogo>
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
 
-        <TransitionGroup>
-          {isMounted && navItems.map((item, i) => (
-            <CSSTransition key={i} classNames="fade" timeout={300} style={{ transitionDelay: `${100 + i * 100}ms` }}>
-              {item}
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
-      </StyledNav>
-    </StyledHeader>
-  );
+                <TransitionGroup>
+                    {isMounted && navItems.map((item, i) => (
+                        <CSSTransition key={i} classNames="fade" timeout={300} style={{ transitionDelay: `${100 + i * 100}ms` }}>
+                            {item}
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
+            </StyledNav>
+        </StyledHeader>
+    );
 }

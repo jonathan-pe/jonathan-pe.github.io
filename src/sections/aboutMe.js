@@ -38,7 +38,7 @@ const StyledCaption = styled.div`
 export default function AboutMe() {
     const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => { setIsMounted(true) }, [])
+    useEffect(() => { setIsMounted(true); }, []);
 
     const greeting = (
         <StyledGreeting>Hi there! I'm</StyledGreeting>

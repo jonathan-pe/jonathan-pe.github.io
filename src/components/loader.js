@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import anime from 'animejs';
+import PropTypes from 'prop-types';
 import Logo from '../components/logo';
 import { theme, mixins } from '../styles';
 
@@ -30,10 +31,10 @@ const StyledLogo = styled.div`
     }
 `;
 
-export default function Loader({ finishLoading }) {
+export default function Loader(props) {
     const animate = () => {
         const loader = anime.timeline({
-            complete: () => finishLoading()
+            complete: () => props.finishLoading()
         });
 
         loader.add({
@@ -55,7 +56,7 @@ export default function Loader({ finishLoading }) {
             opacity: 0,
             scale: 0.1
         });
-    }
+    };
 
     const [isMounted, setIsMounted] = useState(false);
 
@@ -73,3 +74,7 @@ export default function Loader({ finishLoading }) {
         </StyledDiv>
     );
 }
+
+Loader.propTypes = {
+    finishLoading: PropTypes.func,
+};

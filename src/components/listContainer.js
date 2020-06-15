@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { theme } from '../styles';
 
@@ -37,5 +38,10 @@ export default function ListContainer(props) {
                 </StyledListItem>
             ))}
         </StyledList>
-    )
+    );
 }
+
+ListContainer.propTypes = {
+    numColumns: PropTypes.number,
+    items: PropTypes.array.isRequired
+};

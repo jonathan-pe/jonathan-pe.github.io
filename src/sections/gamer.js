@@ -4,7 +4,7 @@ import ListContainer from '../components/listContainer';
 
 export default function League() {
 
-    const games = ["League of Legends", "CS:GO", "Valorant"];
+    const games = ['League of Legends', 'CS:GO', 'Valorant'];
 
     return (
         <section id="gamer">

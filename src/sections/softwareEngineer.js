@@ -12,7 +12,7 @@ const StyledLink = styled(Link)`
 
 export default function Experience() {
 
-    const technologies = ["React", "React Native", "JavaScript (ES6+)", "HTML & CSS", "Node.js", "Java"]
+    const technologies = ['React', 'React Native', 'JavaScript (ES6+)', 'HTML & CSS', 'Node.js', 'Java'];
 
     return (
         <section id="softwareEngineer">
@@ -26,7 +26,7 @@ export default function Experience() {
                 <p>
                     Technologies I've been working with recently:
                 </p>
-                <ListContainer items={technologies}/>
+                <ListContainer items={technologies} />
                 <StyledLink className="buttoned outlined" target="_blank" rel="noopener noreferrer" href={resume}>
                     Resumé
                 </StyledLink>

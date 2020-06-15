@@ -8,43 +8,43 @@ import Loader from './components/loader';
 import GlobalStyle from './styles/GlobalStyle';
 
 export default function App() {
-  
-  const location = window.location;
-  const isHome = location.pathname === '/';
-  const [isLoading, setIsLoading] = useState(isHome);
 
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-    if (location.hash) {
-      const id = location.hash.substring(1);
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView();
-          el.focus();
+    const location = window.location;
+    const isHome = location.pathname === '/';
+    const [isLoading, setIsLoading] = useState(isHome);
+
+    useEffect(() => {
+        if (isLoading) {
+            return;
         }
-      }, 0);
-    }
-  }, [isLoading, location.hash]);
+        if (location.hash) {
+            const id = location.hash.substring(1);
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView();
+                    el.focus();
+                }
+            }, 0);
+        }
+    }, [isLoading, location.hash]);
 
-  return (
-    <React.Fragment>
-      <GlobalStyle />
-      {isLoading && isHome ? (
-        <Loader finishLoading={() => setIsLoading(false)}/>
-      ) : (
+    return (
         <React.Fragment>
-          <Navbar />
-          <div>
-            <AboutMe />
-            <SoftwareEngineer />
-            <DJ />
-            <Gamer />
-          </div>
+            <GlobalStyle />
+            {isLoading && isHome ? (
+                <Loader finishLoading={() => setIsLoading(false)} />
+            ) : (
+                <React.Fragment>
+                    <Navbar />
+                    <div>
+                        <AboutMe />
+                        <SoftwareEngineer />
+                        <DJ />
+                        <Gamer />
+                    </div>
+                </React.Fragment>
+            )}
         </React.Fragment>
-      )}
-    </React.Fragment>
-  );
+    );
 }

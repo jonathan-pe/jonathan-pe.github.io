@@ -4,12 +4,12 @@ import constants from '../config/constants';
 import ListContainer from '../components/listContainer';
 
 export default function DJ() {
-    const shows = ["Welcome To The Jungle, B*TCH (04/25/20)", "Trivecta @ Origin SF (10/18/19)"];
+    const shows = ['Welcome To The Jungle, B*TCH (04/25/20)', 'Trivecta @ Origin SF (10/18/19)'];
 
     return (
         <section id="dj">
             <SectionHeader text="DJ" />
-            <div className={"flexBetween"}>
+            <div className={'flexBetween'}>
                 <div>
                     <p>
                         I'm a DJ who loves to play Electronic Dance Music (EDM)! I like mixing a variety of
